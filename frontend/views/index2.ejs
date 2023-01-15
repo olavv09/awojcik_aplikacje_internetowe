@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Projekt aplikacje internetowe" />
+    <meta name="author" content="Aleksandra Wójcik" />
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="frontend/assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="frontend/css/styles.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/c016d6291a.js" crossorigin="anonymous"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="frontend/js/scripts.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+
+
+<body id="page-top">
+
+    <script type="text/babel">
+        const dogs = []
+        const images = [/*1, "7v2", 3, 4, "8v2", 6*/]
+        const gender = []
+        axios.get('/dogs/all')
+            .then(function (response) {
+                // handle success
+                console.log(response.data);
+                for (let i = 0; i < response.data.length; i++) {
+                    dogs.push(response.data[i].name)
+                    gender.push(response.data[i].sex)
+                    images.push(response.data[i].photo)
+                }
+
+            }).then(function () {
+                ReactDOM.render(<Headline />,
+                    document.getElementById("aaaxd"))
+            });
+        class Headline extends React.Component {
+            render() {
+
+                let counter = 0
+                let i1 = "frontend/assets/img/portfolio/pies"
+                let i2 = ".jpg"
+                return (<div class="row">
+                    {dogs.map(dog => <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src={i1 + images[counter] + i2} alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">{dog}</div>
+                                <div class="portfolio-caption-subheading text-muted">{gender[counter++]}</div>
+                            </div>
+                        </div>
+                    </div>)}</div>)
+
+            }
+        }
+
+
+    </script>
+
+
+
+
+
+
+    <!-- Nawigacja-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">
+                <h5>Schronisko Podaj Łapkę</h5>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#informacje">Informacje</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Gotowe do adopcji</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#codalej">Co dalej?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#wolontariat">Wolontariat</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Szczyt strony-->
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-heading text-uppercase">Schronisko <br>"Podaj Łapkę"</div>
+            <div class="masthead-subheading">Znajdź swojego najlepszego przyjaciela</div>
+            <a class="btn btn-primary btn-xl text-uppercase" href="#informacje">Zacznijmy</a>
+        </div>
+    </header>
+    <!-- Informacje-->
+    <section class="page-section" id="informacje">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Informacje</h2>
+                <h3 class="section-subheading text-muted">W razie pytań lub chęci adopcji prosimy o kontakt.</h3>
+            </div>
+
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <h4> Dane teleadresowe</h4><br>
+                    <div class="tele">
+                        <p><i class="fas fa-location-dot fa-xs adres"></i> ul.Szkolna 17, 15-640 Białystok</p>
+                        <p><i class="fas fa-phone fa-xs adres"></i> +48 111-111-111</p>
+                        <p><i class="fas fa-envelope fa-xs adres"></i>biuro@podajlapke.pl</p>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+
+                    <h4> <i class="fas fa-location-dot fa-xs adres "></i> Jak dojechac</h4><br>
+
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2394.264247285606!2d23.084331515458377!3d53.12340189908842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ffb77bfb8d15b%3A0xc43e2f02eebb7ca7!2sSzkolna%2017%2C%2015-640%20Bia%C5%82ystok!5e0!3m2!1spl!2spl!4v1655837323028!5m2!1spl!2spl"
+                        width="350" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="col-md-4">
+
+                    <h4><i class="fas fa-business-time fa-xs  time"></i> Godziny otwarcia</h4><br>
+                    <div class="wrapper">
+                        <div class="row">
+                            <div>Poniedziałek</div>
+                            <div>8:00 - 18:00</div>
+                        </div>
+
+                        <div class="row">
+                            <div>Wtorek</div>
+                            <div>8:00 - 18:00</div>
+                        </div>
+                        <div class="row">
+                            <div>Środa</div>
+                            <div>8:00 - 18:00</div>
+                        </div>
+
+                        <div class="row">
+                            <div>Czwartek</div>
+                            <div>8:00 - 18:00</div>
+                        </div>
+                        <div class="row">
+                            <div>Piątek</div>
+                            <div>9:00 - 15:00</div>
+                        </div>
+
+                        <div class="row">
+                            <div>Sobota</div>
+                            <div>11:00 - 15:00</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+    </section>
+    <!-- Gotowe do adopcji-->
+    <section class="page-section bg-light" id="portfolio">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Gotowe do adopcji</h2>
+            </div>
+            <div id="aaaxd">
+
+            </div>
+        </div>
+    </section>
+    <!-- About-->
+    <section class="page-section" id="codalej">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Co dalej?</h2>
+                <h3 class="section-subheading text-muted">Czyli porady, jak zachowywać się po adopcji</h3>
+            </div>
+            <ul class="timeline">
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid"
+                            src="frontend/assets/img/about/doginacar.jpg" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="subheading">Zanim wsiądziesz z psem do samochodu</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">Zanim wsiądziesz z psem do samochodu czy autobusu, idź z nim na spacer
+                                – to na spacerze powstaje najsilniejsza więź łącząca Cię z psem. Umożliwi to też psu
+                                załatwienie się, dzięki czemu nie nabrudzi w środkach transportu.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image"><img class="rounded-circle img-fluid"
+                            src="frontend/assets/img/about/doginahouse.jpg" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="subheading">Zanim wprowadzisz psa do domu</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">Zanim wprowadzisz psa do domu, przespaceruj się po okolicy, niech
+                                obwącha teren. To pomoże mu poznać nowe środowisko i fizycznie poczuć, że
+                                podróżował.Wprowadź psa do domu na smyczy.
+                                Pokaż mu, gdzie jest jego legowisko i gdzie stoją miski.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid"
+                            src="frontend/assets/img/about/spendingtime.jpg" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="subheading">Zarezerwuj dla niego trochę czasu</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">Pies jest tak samo jak Ty przejęty zmianą w życiu.Pozwól, by oswoił
+                                się z nowym otoczeniem. Nie dotykaj, nie przytulaj na siłę. Spotkania zapoznawcze
+                                zwierzęcia z rodziną i znajomymi zaplanuj na później.
+                                Pierwsze dni po adopcji to czas dla Was, na wzajemne poznawanie się. Jeszcze przed
+                                adopcją ustal, co psu będzie wolno, a czego nie będzie mógł robić, i od pierwszego dnia
+                                przestrzegaj tych zasad. </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image"><img class="rounded-circle img-fluid"
+                            src="frontend/assets/img/about/dogdiet.jpg" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="subheading">Pamiętaj o regularnych spacerach i zadbaj o odpowiednią dietę swojego
+                                psa.</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">Pamiętaj, że pieniądze wydane na karmę to pieniądze zaoszczędzone na
+                                leczeniu. Karm psa o tej samej godzinie (ułatwi to zachowanie czystości w domu).</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image">
+                        <h4>
+                            W razie
+                            <br />
+                            problemów
+                            <br />
+                            skontaktuj się
+                            <br />
+                            z nami!
+                        </h4>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--Wolontariat-->
+    <section class="page-section bg-light" id="wolontariat">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Wolontariat</h2>
+                <h3 class="section-subheading text-muted">Dołącz do nas!<br>Odezwiemy się do ciebie za pośrednictwem
+                    maila lub telefonicznie</h3>
+                <form id="vol_form">
+                    <!-- układ 2 kolumnowy z miejscami na imie i nazwisko -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" id="name" required
+                                    pattern="[A-Za-ząćęłńóśźżĄĘŁŃÓŚŹŻ ]{3,}[^a-zA-ZąćęłńóśźżĄĘŁŃÓŚŹŻ]{0,}"
+                                    placeholder="Podaj swoje imię" class="form-control" />
+                                <label class="form-label" for="name">Imie</label>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" id="surname" required pattern="[A-Za-ząćęłńóśźżĄĘŁŃÓŚŹŻ]{3,}"
+                                    placeholder="Podaj swoje nazwisko" class="form-control" />
+                                <label class="form-label" for="surname">Nazwisko</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- układ 2 kolumnowy z miejscami na mail i numer telefonu -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="email" id="mail" class="form-control" required
+                                    placeholder="Podaj swój adres mail" />
+                                <label class="form-label" for="mail">E-mail</label>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="tel" id="phone" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+                                    placeholder="XXX-XXX-XXX" class="form-control" />
+                                <label class="form-label" for="phone">Numer telefonu</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- miejsce na informacje o sobie -->
+                    <div class="form-outline">
+                        <textarea class="form-control" id="about" required rows="2"></textarea>
+                        <label class="form-label" for="about">Napisz nam coś o sobie</label>
+                    </div>
+
+                    <!-- wysłanie formularza -->
+                    <button id="form_submit" type="button" onclick="saveVolForm()"
+                        class="btn btn-primary text-dark btn-block mb-4">Złóż formularz</button>
+                </form>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Wafel (pies1)-->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src="frontend/assets/img/close-icon.svg"
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Wafel po otworzeniu-->
+                                <h2 class="text-uppercase">Wafel</h2>
+                                <img class="img-fluid d-block mx-auto" src="frontend/assets/img/portfolio/pies1.jpg"
+                                    alt="..." />
+                                <p>Wafel trafił do schroniska po kolejnej ucieczce z niezabezpieczonego podwórka, ale
+                                    tym razem jego opiekunowie postanowili się go zrzec i zostawić w schronisku.
+                                    Jest biszkoptowo-rudo umaszczonym niskopodłogowcem z zabawnie zakręconym ogonkiem,
+                                    oklapniętymi uszkami i bystrym spojrzeniem. Jest energiczny i spacer z nim to
+                                    głównie eksplorowanie i węszenie połączone z przerwami na głaskanie.
+                                    Póki co, jest w nim jeszcze sporo frustracji związanej ze znalezieniem się w
+                                    schronisku, którą okazuje głośnym obszczekiwaniem innych czworonogów. Będziemy
+                                    pracować nad budowaniem jego relacji z innymi psami, ale w schroniskowych warunkach
+                                    jest to sporym wyzwaniem.</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>Rasa:</strong>
+                                        Mieszaniec
+                                    </li>
+                                    <li>
+                                        <strong>Wiek:</strong>
+                                        3 lata
+                                    </li>
+                                    <li>
+                                        <strong>Płeć:</strong>
+                                        Samiec
+                                    </li>
+                                    <li>
+                                        <strong>Waga:</strong>
+                                        8 kg
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Zamknij
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Luna (pies2)-->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src="frontend/assets/img/close-icon.svg"
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Luna po otworzeniu-->
+                                <h2 class="text-uppercase">Luna</h2>
+                                <img class="img-fluid d-block mx-auto" src="frontend/assets/img/portfolio/pies7v2.jpg"
+                                    alt="..." />
+                                <p>Luna dotychczas mieszkała w mieście, w mieszkaniu w bloku, nieobcy jej więc zgiełk
+                                    uliczny i codzienna rutyna. W przeszłości nie była traktowana jako pełnoprawny
+                                    członek rodziny i niestety nie miała łatwej przeszłości.
+                                    Luna jest psem lękowym, nieufnym do obcych, których skutecznie odstrasza warczeniem
+                                    lub obszczekiwaniem. Początki w schronisku były dla niej bardzo trudne i dopiero
+                                    systematyczne odwiedziny poskutkowały tym, że Luna pozwoliła w końcu na bliższy
+                                    kontakt i wyjście na spacer. Do osób, które zna i ufa, jest cudowna i oddana, a
+                                    przebywanie z nią to sama przyjemność. W nienachalny, wręcz trochę nieśmiały sposób
+                                    szuka kontaktu z człowiekiem.</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>Rasa:</strong>
+                                        Amstaff/Pitbull
+                                    </li>
+                                    <li>
+                                        <strong>Wiek:</strong>
+                                        6 lat
+                                    </li>
+                                    <li>
+                                        <strong>Płeć:</strong>
+                                        Samica
+                                    </li>
+                                    <li>
+                                        <strong>Waga:</strong>
+                                        32 kg
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Zamknij
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Koko (pies3)-->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src="frontend/assets/img/close-icon.svg"
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Koko po otworzeniu-->
+                                <h2 class="text-uppercase">Koko</h2>
+                                <img class="img-fluid d-block mx-auto" src="frontend/assets/img/portfolio/pies3v2.jpg"
+                                    alt="..." />
+                                <p>Koko to urocza, 6-miesięczna puchata kulka. Z charakterkiem i donośnym głosem. Nie
+                                    znamy jej przeszłości, w schronisku znalazła się razem ze swoim bratem, Cliffordem.
+                                    Jest wesoła i rozbrykana - stosownie do wieku.</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>Rasa:</strong>
+                                        Mieszaniec
+                                    </li>
+                                    <li>
+                                        <strong>Wiek:</strong>
+                                        6 miesięcy
+                                    </li>
+                                    <li>
+                                        <strong>Płeć:</strong>
+                                        Samica
+                                    </li>
+                                    <li>
+                                        <strong>Waga:</strong>
+                                        4 kg
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Zamknij
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Clifford (pies4)-->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src="frontend/assets/img/close-icon.svg"
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- PClifford po otworzeniu-->
+                                <h2 class="text-uppercase">Clifford</h2>
+                                <img class="img-fluid d-block mx-auto" src="frontend/assets/img/portfolio/pies4.jpg"
+                                    alt="..." />
+                                <p>Clifford jest wyjątkowym psem, ponieważ nie słyszy. Zupełnie nie przeszkadza mu to w
+                                    codziennym funkcjonowaniu – reaguje na gesty, dogaduje się z innymi psami.
+                                    Pomimo, że Clifford jakiś czas temu przeszedł operację łapki i trochę utyka, jest
+                                    bardzo aktywny w kontakcie z innymi psami - bardzo lubi biegać i się z nimi bawić.
+                                    Clifford bywa bardzo żywiołowy, ma w sobie wiele silnych emocji, którymi dzieli się
+                                    z innymi – i z ludźmi i ze zwierzętami.</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>Rasa:</strong>
+                                        Mieszaniec
+                                    </li>
+                                    <li>
+                                        <strong>Wiek:</strong>
+                                        5 lat
+                                    </li>
+                                    <li>
+                                        <strong>Płeć:</strong>
+                                        Samiec
+                                    </li>
+                                    <li>
+                                        <strong>Waga:</strong>
+                                        14 kg
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Zamknij
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Freddie (pies5)-->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src="frontend/assets/img/close-icon.svg"
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Freddie po otworzeniu-->
+                                <h2 class="text-uppercase">Freddie</h2>
+                                <img class="img-fluid d-block mx-auto" src="frontend/assets/img/portfolio/pies5.jpg"
+                                    alt="..." />
+                                <p>Freddie trafił do schroniska po kolejnej ucieczce z niezabezpieczonego podwórka, ale
+                                    tym razem jego opiekunowie postanowili się go zrzec i zostawić w schronisku.
+                                    Jest biszkoptowo-rudo umaszczonym niskopodłogowcem z zabawnie zakręconym ogonkiem,
+                                    oklapniętymi uszkami i bystrym spojrzeniem. Jest energiczny i spacer z nim to
+                                    głównie eksplorowanie i węszenie połączone z przerwami na głaskanie.
+                                    Póki co, jest w nim jeszcze sporo frustracji związanej ze znalezieniem się w
+                                    schronisku, którą okazuje głośnym obszczekiwaniem innych czworonogów. Będziemy
+                                    pracować nad budowaniem jego relacji z innymi psami, ale w schroniskowych warunkach
+                                    jest to sporym wyzwaniem.</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>Rasa:</strong>
+                                        Mieszaniec
+                                    </li>
+                                    <li>
+                                        <strong>Wiek:</strong>
+                                        2 lata
+                                    </li>
+                                    <li>
+                                        <strong>Płeć:</strong>
+                                        Samiec
+                                    </li>
+                                    <li>
+                                        <strong>Waga:</strong>
+                                        11 kg
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Zamknij
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Puszek (pies6)-->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src="frontend/assets/img/close-icon.svg"
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Puszek po otworzeniu-->
+                                <h2 class="text-uppercase">Puszek</h2>
+                                <img class="img-fluid d-block mx-auto" src="frontend/assets/img/portfolio/pies6.jpg"
+                                    alt="..." />
+                                <p>Puszek to piękny, silny, ponad trzyletni samiec w typie husky zachwycający północną
+                                    urodą. Już z daleka widać jego lśniącą szaro-srebrną sierść, błękitne oczy i piękny
+                                    ogon. Przy bliższym poznaniu szybko przekonujemy się, że to również z charakteru
+                                    pies północy – żywiołowy, o dużym temperamencie i bardzo silnym charakterze.
+                                    Broni zasobów i jest terytorialny – potrafi w takich sytuacjach pokazać zęby lub
+                                    ugryźć. Emocjonalnie reaguje na inne psy, jednak jego agresja wynika w dużej mierze
+                                    z braków socjalizacyjnych. Na spacerze ładnie chodzi na smyczy, umie podstawowe
+                                    komendy i chętnie się uczy.</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>Rasa:</strong>
+                                        Husky
+                                    </li>
+                                    <li>
+                                        <strong>Wiek:</strong>
+                                        5 lat
+                                    </li>
+                                    <li>
+                                        <strong>Płeć:</strong>
+                                        Samiec
+                                    </li>
+                                    <li>
+                                        <strong>Waga:</strong>
+                                        33 kg
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Zamknij
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
+
+</html>
