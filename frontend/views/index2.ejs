@@ -37,7 +37,7 @@
 
     <script type="text/babel">
         const dogs = []
-        const images = [/*1, "7v2", 3, 4, "8v2", 6*/]
+        const images = []
         const gender = []
         axios.get('/dogs/all')
             .then(function (response) {
@@ -57,8 +57,8 @@
             render() {
 
                 let counter = 0
-                let i1 = "frontend/assets/img/portfolio/pies"
-                let i2 = ".jpg"
+                //let i1 = "frontend/assets/img/portfolio/pies"
+                //let i2 = ".jpg"
                 return (<div class="row">
                     {dogs.map(dog => <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
@@ -66,7 +66,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src={i1 + images[counter] + i2} alt="..." />
+                                <img class="img-fluid" src={images[counter]} alt="..." />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">{dog}</div>
